@@ -1,0 +1,15 @@
+ "corona_df = corona_df.rename(columns={'State/UnionTerritory':'States','Cured':'Recovered'})"
+ "corona_df['Active'] = corona_df['Confirmed'] - corona_df['Recovered'] - corona_df['Deaths']"
+  "corona_df = corona_df.sort_values(['Date', 'State']).reset_index(drop=True)"
+ "corona_df['Date'] = pd.to_datetime(corona_df['Date'])"
+
+    "_cases = corona_df[corona_df['Date'] == corona_df['Date'].max()].copy().fillna(0)\n",
+    "_cases.index = india_cases[\"State\"]\n",
+    "_cases = india_cases.drop(['State', 'Date'], axis=1)"
+
+ "sns.barplot(data = top_10_india_active_states, x=top_10_india_active_states.Active, \n",
+    "            y=top_10_india_active_states.index,color = 'Purple')\n",
+    "plt.title('Top 10 States (Active Cases)')\n",
+    "plt.xlabel('Number of Active cases (in Thousands)')\n",
+    "plt.ylabel('States Name')\n",
+    "plt.show()"

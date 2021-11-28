@@ -1,0 +1,14 @@
+ "source": [
+    "#subset the dataset\n",
+    "df_sample=df[df[\"State\"]==\"Kerala\"]\n",
+    "\n",
+    "#print some rows\n",
+    "df_sample.head(50)"
+
+ "#change the date column from object to date type\n",
+    "df_sample['Date'] = pd.to_datetime(df_sample['Date'],format='%d/%m/%y',)\n",
+    "#print the new types\n",
+    "df_sample.dtypes"
+
+"#change some columns to type numeric (int)\n",
+    "df_sample[\"ConfirmedIndianNational\"] = df_sample[\"ConfirmedIndianNational\"].astype(int)"

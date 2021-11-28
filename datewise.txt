@@ -1,0 +1,19 @@
+ "df_sample[\"ConfirmedForeignNational\"] = df_sample[\"ConfirmedForeignNational\"].astype(int)\n"
+
+ "source": [
+    "#filter the data frame to a certain date\n",
+    "df_sample = df_sample[df_sample['Date'] < \"2020-04-01\"]\n",
+    "df_sample"
+
+"# plot\n",
+    "f, axes = plt.subplots(1, 2, figsize=(30, 20), sharex=True)\n",
+    "\n",
+    "# Add x-axis and y-axis\n",
+    "sns.lineplot(data=df_sample, x='Date', y='ConfirmedIndianNational', hue='State', ax=axes[0])\n",
+    "\n",
+    "sns.lineplot(data=df_sample, x='Date', y='ConfirmedForeignNational', hue='State', ax=axes[1])\n",
+    "\n",
+    "# Rotate tick marks on x-axis\n",
+    "plt.setp(ax.get_xticklabels(), rotation=45)\n",
+    "\n",
+    "plt.show()"

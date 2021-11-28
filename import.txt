@@ -1,0 +1,15 @@
+"import numpy as np\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns\n",
+   "#load the covid-19 india dataset\n",
+    "df = pd.read_csv('covid_19_india.csv')\n",
+    "\n",
+    "#change the state column name\n",
+    "df = df.rename(columns={\"State/UnionTerritory\": \"State\"})\n",
+    "\n",
+    "#print it\n",
+    "df"
+
+ "#Which unique states\n",
+    "print(df[\"State\"].unique())"
